@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hexcolor/hexcolor.dart';
 class ThirdScreen extends StatefulWidget {
   const ThirdScreen({ Key? key }) : super(key: key);
   @override
@@ -266,12 +267,61 @@ class _ThirdScreenState extends State<ThirdScreen> {
 
 
                   ]
-                  ) 
+                  ) ,
+                  drawer: Drawer(
+        child: ListView(
+          padding: const EdgeInsets.all(0),
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Color.fromRGBO(80, 80, 206, 1),
+              ), //BoxDecoration
+              child: UserAccountsDrawerHeader(
+                decoration: BoxDecoration(color: Color.fromRGBO(80, 80, 206, 1)),
+                accountName: Text(
+                  "Sara",
+                  style: TextStyle(fontSize: 18),
+                ),
+                accountEmail: Text("Sara@gmail.com"),
+                currentAccountPictureSize: Size.square(50),
+                currentAccountPicture: CircleAvatar(
+                  backgroundColor: Color.fromRGBO(255, 255, 255, 0.6),
+                  child: Text(
+                    "S",
+                    style: TextStyle(fontSize: 30.0, color: Colors.blue),
+                  ), //Text
+                ), //circleAvatar
+              ), //UserAccountDrawerHeader
+            ), //DrawerHeader
+            ListTile(
+              leading: const Icon(Icons.person),
+              title: const Text(' Profile '),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+                 leading: const Icon(Icons.person),
+              title: const Text(' Patient Profile '),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+         leading: const Icon(Icons.logout),
+              title: const Text(' Log Out '),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          
+          ],
+        ),
         
 
                 
                 
-              
+                  )     
   
     );
   }
